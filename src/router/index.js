@@ -7,6 +7,11 @@ Vue.use(Router)
 const Home = r => require.ensure([], () => r(require('../pages/Home')), 'main');
 const Inner = r => require.ensure([], () => r(require('../pages/Web')), 'main');
 const WebInner = r => require.ensure([], () => r(require('../pages/WebInner')), 'main');
+
+//登陆页面
+const Login = r => require.ensure([], () => r(require('../pages/login/login')), 'main');
+
+
 //租务管理
 const Building = r => require.ensure([], () => r(require('../pages/tenancy/Index')), 'tenancy');
 const Intention = r => require.ensure([], () => r(require('../pages/tenancy/contract/Index')), 'tenancy');
@@ -64,6 +69,10 @@ const router = new Router({
         {
             path: '/',
             component: Home
+        },
+        {
+            path: '/login',
+            component: Login
         },
         {
             path: '/inner',

@@ -5,12 +5,16 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import router from './router'
-import * as api from './api/api'
+// import * as api from './api/api'
 import * as filter from './utils/filter'
 import store from './store'
 
+import i18n from './lang'
+
 // Vue.prototype.$api = api;
-Vue.use(ElementUI);
+Vue.use(ElementUI, {
+    i18n: (key, value) => i18n.t(key, value)
+});
 
 Object.keys(filter).forEach(key => {
     Vue.filter(key, filter[key])
@@ -21,5 +25,6 @@ new Vue({
     el: '#app',
     router,
     store,
+    i18n,
     render: h => h(App)
 });
