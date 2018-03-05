@@ -10,6 +10,7 @@ import * as filter from './utils/filter'
 import store from './store'
 
 import i18n from './lang'
+import './icons'
 
 // Vue.prototype.$api = api;
 Vue.use(ElementUI, {
