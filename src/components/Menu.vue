@@ -345,11 +345,11 @@ export default {
           }
         ]
       };
-      switch (this.$route.name) {
-        case "inner":
+      switch (this.$route.matched[0].path) {
+        case "/inner":
           return menuData.tenancy;
           break;
-        case "finance":
+        case "/finance":
           return menuData.finance;
           break;
         case "/sales/salmanage":
@@ -367,7 +367,7 @@ export default {
         case "/database/dataview":
           return menuData.tenancy;
           break;
-        case "system":
+        case "/system":
           return menuData.system;
           break;
       }
