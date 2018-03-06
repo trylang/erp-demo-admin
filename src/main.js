@@ -11,6 +11,7 @@ import store from './store'
 
 import i18n from './lang'
 import './icons'
+import './permission'
 
 // Vue.prototype.$api = api;
 Vue.use(ElementUI, {

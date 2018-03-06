@@ -12,9 +12,10 @@ export function _remove(name, param, data) {
   data.splice(index, 1);
 }
 
+// url = {url.path, url.param}
 export function _returnPromise(api, url, callback) {
   return new Promise((resolve, reject) => {
-    api(url.path, url.param).then(returnObj => {
+    api(url).then(returnObj => {
       callback(returnObj);
       resolve();
     }).catch((error) => {

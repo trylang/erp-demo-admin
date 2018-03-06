@@ -7,7 +7,7 @@
       </div>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
-          <svg-icon icon-name="user" />
+          <svg-icon icon-name="girl" />
         </span>
         <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="username" />
       </el-form-item>
@@ -19,7 +19,6 @@
         <el-input name="password" :type="passwordType" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on" placeholder="password" />
         <span class="show-pwd" @click="showPwd">
           <svg-icon icon-name="eye" />
-          <svg-icon icon-name="girl"></svg-icon>
         </span>
       </el-form-item>
 
@@ -49,7 +48,7 @@
 </template>
 
 <script>
-// import { isvalidUsername } from '@/utils/validate'
+import { isvalidUsername } from '@/utils/validate'
 // import LangSelect from '@/components/LangSelect'
 // import SocialSign from './socialsignin'
 export default {
@@ -59,18 +58,18 @@ export default {
   name: "login",
   data() {
     const validateUsername = (rule, value, callback) => {
-      // if (!isvalidUsername(value)) {
-      //   callback(new Error('Please enter the correct user name'))
-      // } else {
-      //   callback()
-      // }
+      if (!isvalidUsername(value)) {
+        callback(new Error('Please enter the correct user name'))
+      } else {
+        callback()
+      }
     };
     const validatePassword = (rule, value, callback) => {
-      // if (value.length < 6) {
-      //   callback(new Error('The password can not be less than 6 digits'))
-      // } else {
-      //   callback()
-      // }
+      if (value.length < 6) {
+        callback(new Error('The password can not be less than 6 digits'))
+      } else {
+        callback()
+      }
     };
     return {
       loginForm: {

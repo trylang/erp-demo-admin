@@ -64,294 +64,321 @@ const Role = r => require.ensure([], () => r(require('../pages/system/Role')), '
 const Log = r => require.ensure([], () => r(require('../pages/system/Log')), 'system');
 const AddRole = r => require.ensure([], () => r(require('../pages/system/AddRole')), 'system');
 
-const router = new Router({
-    routes: [
-        {
-            path: '/',
-            component: Home
-        },
-        {
-            path: '/login',
-            component: Login
-        },
-        {
-            path: '/inner',
-            component: Inner,
-            redirect: '/inner/building',
-            children: [
-                {
-                    path: 'building',
-                    name: 'inner',
-                    component: Building
-                },
-                {
-                    path: 'intention',
-                    name: 'inner',
-                    component: Intention
-                }
-            ]
-        },
-        {
-            path: '/finance',
-            component: Inner,
-            redirect: '/finance/accountGroup',
-            children: [
-                {
-                    path: 'accountGroup',
-                    name: 'finance',
-                    component: AccountGroup
-                },
-                {
-                    path: 'cost',
-                    name: 'finance',
-                    component: Cost
-                },
-                {
-                    path: 'takeMargin',
-                    name: 'finance',
-                    component: TakeMargin
-                },
-                {
-                    path: 'takeMargin/collectDeposit',
-                    name: 'finance',
-                    component: CollectDeposit
-                },
-                {
-                    path: 'takeMargin/collectEarnest',
-                    name: 'finance',
-                    component: CollectEarnest
-                },
-                {
-                    path: 'payManagement',
-                    name: 'finance',
-                    component: PayManagement
-                },
-                {
-                    path: 'payManagement/collectMoney',
-                    name: 'finance',
-                    component: CollectMoney
-                },
-                {
-                    path: 'taxRate',
-                    name: 'finance',
-                    component: TaxRate
-                },
-                {
-                    path: 'taxRate2cost',
-                    name: 'finance',
-                    component: TaxRate2cost
-                },
-                {
-                    path: 'collectionAccount',
-                    name: 'finance',
-                    component: CollectionAccount
-                },
-                {
-                    path: 'accountAdjust',
-                    name: 'finance',
-                    component: AccountAdjust
-                },
-                {
-                    path: 'accountAdjust/addAdjustment',
-                    name: 'finance',
-                    component: AddAdjustment
-                },
-                {
-                    path: 'collectionMethods',
-                    name: 'finance',
-                    component: CollectionMethods
-                },
-                {
-                    path: 'contractMargin',
-                    name: 'finance',
-                    component: ContractMargin
-                },
-                {
-                    path: 'dealMargin',
-                    name: 'finance',
-                    component: DealMargin
-                },
-                {
-                    path: 'advancePayMethods',
-                    name: 'finance',
-                    component: AdvancePayMethods
-                },
-                {
-                    path: 'takeadvancePay',
-                    name: 'finance',
-                    component: TakeadvancePay
-                },
-                {
-                    path: 'merchantAdvancePay',
-                    name: 'finance',
-                    component: MerchantAdvancePay
-                },
-                {
-                    path: 'dealAdvancePay',
-                    name: 'finance',
-                    component: DealAdvancePay
-                },
-                {
-                    path: 'irregularCost',
-                    name: 'finance',
-                    component: IrregularCost
-                },
-                {
-                    path: 'irregularCost/entering',
-                    name: 'finance',
-                    component: Entering
-                },{
-                    path: 'costAdjust',
-                    name: 'finance',
-                    component: CostAdjust
-                },{
-                    path: 'costAdjust/addCostAdjust',
-                    name: 'finance',
-                    component: AddCostAdjust
-                },{
-                    path: 'rentFree',
-                    name: 'finance',
-                    component: RentFree
-                },{
-                    path: 'rentFree/addRentFree',
-                    name: 'finance',
-                    component: AddRentFree
-                },{
-                    path: 'generateAccount',
-                    name: 'finance',
-                    component: GenerateAccount
-                },{
-                    path: 'accountManagement',
-                    name: 'finance',
-                    component: AccountManagement
-                },{
-                    path: 'accountAdjustType',
-                    name: 'finance',
-                    component: AccountAdjustType
-                },{
-                    path: 'payMethods',
-                    name: 'finance',
-                    component: PayMethods
-                },{
-                    path: 'importIrregularCost',
-                    name: 'finance',
-                    component: ImportIrregularCost
-                }
-            ]
-        },
-        {
-            path: '/sales',
-            component: Inner,
-            children: [
-                {
-                    path: 'salmanage',
-                    component: Salmanage
-                }
-            ]
-        },
-        {
-            path: '/rebates',
-            component: Inner,
-            children: [
-                {
-                    path: 'terminal',
-                    component: Terminal
-                }
-            ]
-        },
-        {
-            path: '/visual',
-            component: Inner,
-            children: [
-                {
-                    path: 'visualization',
-                    component: Visualization
-                }
-            ]
-        },
-        {
-            path: '/webinner',
-            component: WebInner,
-            redirect: '/webinner/merchant',
-            children: [
-                {
-                    path: 'merchant',
-                    component: Merchant
-                }
-            ]
-        },
-        {
-            path: '/database',
-            component: Inner,
-            children: [
-                {
-                    path: 'dataview',
-                    component: Dataview
-                }
-            ]
-        },
-        {
-            path: '/system',
-            component: Inner,
-            redirect: '/system/area',
-            children: [
-                {
-                    path: 'area',
-                    name: 'system',
-                    component: Area
-                },
-                {
-                    path: 'shopping',
-                    name: 'system',
-                    component: Shopping
-                },
-                {
-                    path: 'dept',
-                    name: 'system',
-                    component: Dept
-                },
-                {
-                    path: 'job',
-                    name: 'system',
-                    component: Job
-                },
-                {
-                    path: 'user',
-                    name: 'system',
-                    component: User
-                },
-                {
-                    path: 'adduser',
-                    name: 'system',
-                    component: AddUser
-                },
-                {
-                    path: 'role',
-                    name: 'system',
-                    component: Role
-                },
-                {
-                    path: 'addrole',
-                    name: 'system',
-                    component: AddRole
-                },
-                {
-                    path: 'log',
-                    name: 'system',
-                    component: Log
-                }
-            ]
-        }
+export const constantRouterMap = [
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '',
+    component: Home
+  },
+  {
+    path: '/inner',
+    component: Inner,
+    redirect: '/inner/building',
+    children: [
+      {
+        path: 'building',
+        name: 'inner',
+        component: Building
+      },
+      {
+        path: 'intention',
+        name: 'inner',
+        component: Intention
+      }
     ]
+  },
+  {
+    path: '/finance',
+    component: Inner,
+    redirect: '/finance/accountGroup',
+    children: [
+      {
+        path: 'accountGroup',
+        name: 'finance',
+        component: AccountGroup
+      },
+      {
+        path: 'cost',
+        name: 'finance',
+        component: Cost
+      },
+      {
+        path: 'takeMargin',
+        name: 'finance',
+        component: TakeMargin
+      },
+      {
+        path: 'takeMargin/collectDeposit',
+        name: 'finance',
+        component: CollectDeposit
+      },
+      {
+        path: 'takeMargin/collectEarnest',
+        name: 'finance',
+        component: CollectEarnest
+      },
+      {
+        path: 'payManagement',
+        name: 'finance',
+        component: PayManagement
+      },
+      {
+        path: 'payManagement/collectMoney',
+        name: 'finance',
+        component: CollectMoney
+      },
+      {
+        path: 'taxRate',
+        name: 'finance',
+        component: TaxRate
+      },
+      {
+        path: 'taxRate2cost',
+        name: 'finance',
+        component: TaxRate2cost
+      },
+      {
+        path: 'collectionAccount',
+        name: 'finance',
+        component: CollectionAccount
+      },
+      {
+        path: 'accountAdjust',
+        name: 'finance',
+        component: AccountAdjust
+      },
+      {
+        path: 'accountAdjust/addAdjustment',
+        name: 'finance',
+        component: AddAdjustment
+      },
+      {
+        path: 'collectionMethods',
+        name: 'finance',
+        component: CollectionMethods
+      },
+      {
+        path: 'contractMargin',
+        name: 'finance',
+        component: ContractMargin
+      },
+      {
+        path: 'dealMargin',
+        name: 'finance',
+        component: DealMargin
+      },
+      {
+        path: 'advancePayMethods',
+        name: 'finance',
+        component: AdvancePayMethods
+      },
+      {
+        path: 'takeadvancePay',
+        name: 'finance',
+        component: TakeadvancePay
+      },
+      {
+        path: 'merchantAdvancePay',
+        name: 'finance',
+        component: MerchantAdvancePay
+      },
+      {
+        path: 'dealAdvancePay',
+        name: 'finance',
+        component: DealAdvancePay
+      },
+      {
+        path: 'irregularCost',
+        name: 'finance',
+        component: IrregularCost
+      },
+      {
+        path: 'irregularCost/entering',
+        name: 'finance',
+        component: Entering
+      }, {
+        path: 'costAdjust',
+        name: 'finance',
+        component: CostAdjust
+      }, {
+        path: 'costAdjust/addCostAdjust',
+        name: 'finance',
+        component: AddCostAdjust
+      }, {
+        path: 'rentFree',
+        name: 'finance',
+        component: RentFree
+      }, {
+        path: 'rentFree/addRentFree',
+        name: 'finance',
+        component: AddRentFree
+      }, {
+        path: 'generateAccount',
+        name: 'finance',
+        component: GenerateAccount
+      }, {
+        path: 'accountManagement',
+        name: 'finance',
+        component: AccountManagement
+      }, {
+        path: 'accountAdjustType',
+        name: 'finance',
+        component: AccountAdjustType
+      }, {
+        path: 'payMethods',
+        name: 'finance',
+        component: PayMethods
+      }, {
+        path: 'importIrregularCost',
+        name: 'finance',
+        component: ImportIrregularCost
+      }
+    ]
+  },
+  {
+    path: '/sales',
+    component: Inner,
+    children: [
+      {
+        path: 'salmanage',
+        component: Salmanage
+      }
+    ]
+  },
+  {
+    path: '/rebates',
+    component: Inner,
+    children: [
+      {
+        path: 'terminal',
+        component: Terminal
+      }
+    ]
+  },
+  {
+    path: '/visual',
+    component: Inner,
+    children: [
+      {
+        path: 'visualization',
+        component: Visualization
+      }
+    ]
+  },
+  {
+    path: '/webinner',
+    component: WebInner,
+    redirect: '/webinner/merchant',
+    children: [
+      {
+        path: 'merchant',
+        component: Merchant
+      }
+    ]
+  },
+  {
+    path: '/database',
+    component: Inner,
+    children: [
+      {
+        path: 'dataview',
+        component: Dataview
+      }
+    ]
+  },
+  {
+    path: '/system',
+    component: Inner,
+    redirect: '/system/area',
+    children: [
+      {
+        path: 'area',
+        name: 'system',
+        component: Area
+      },
+      {
+        path: 'shopping',
+        name: 'system',
+        component: Shopping
+      },
+      {
+        path: 'dept',
+        name: 'system',
+        component: Dept
+      },
+      {
+        path: 'job',
+        name: 'system',
+        component: Job
+      },
+      {
+        path: 'user',
+        name: 'system',
+        component: User
+      },
+      {
+        path: 'adduser',
+        name: 'system',
+        component: AddUser
+      },
+      {
+        path: 'role',
+        name: 'system',
+        component: Role
+      },
+      {
+        path: 'addrole',
+        name: 'system',
+        component: AddRole
+      },
+      {
+        path: 'log',
+        name: 'system',
+        component: Log
+      }
+    ]
+  }
+];
+
+export const asyncRouterMap = [
+  {
+    path: '/test',
+    component: Inner,
+    redirect: '/test/accountGroup',
+    children: [
+      {
+        path: 'accountGroup',
+        component: AccountGroup
+      },
+      {
+        path: 'takeMargin',
+        component: TakeMargin
+      },
+      {
+        path: 'takeMargin/collectDeposit',
+        component: CollectDeposit
+      },
+      {
+        path: 'takeMargin/collectEarnest',
+        component: CollectEarnest
+      },
+      {
+        path: 'payManagement',
+        component: PayManagement
+      },
+      {
+        path: 'payManagement/collectMoney',
+        component: CollectMoney
+      }
+    ]
+  }
+];
+
+const router = new Router({
+  routes: constantRouterMap
 });
-router.beforeEach((toroute, fromroute, next) => {
-    let store = router.app.$options.store,
-        _path = toroute.path.match(/\/?[^\/]+/g);
-    _path = _path || ['/'];
-    let enterHandler = () => {
-        store.commit('MENU_ACTIVE', _path[0])
-    };
-    enterHandler();
-    next();
-});
+
 export default router;
