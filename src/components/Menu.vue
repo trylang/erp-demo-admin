@@ -378,8 +378,9 @@ export default {
       'permission_routers'
     ]),
     menus() {
+      const activeParentPath = this.$route.matched[0].path;
       return this.permission_routers.filter(item => {
-        return !item.hidden;
+        return !item.hidden && item.path === activeParentPath;
       });
     },
     activeMenu() {
