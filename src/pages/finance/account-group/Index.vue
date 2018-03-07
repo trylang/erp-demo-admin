@@ -121,7 +121,6 @@ export default {
           type: "primary",
           disabledFun: () => {
             return Object.values(this.dialog.param).some(item => {
-              console.log(item);
               return item === (undefined || "");
             });
           },

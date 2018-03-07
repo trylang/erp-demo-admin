@@ -17,7 +17,7 @@ export function _returnPromise(api, url, callback) {
   return new Promise((resolve, reject) => {
     api(url).then(returnObj => {
       callback(returnObj);
-      resolve();
+      resolve(returnObj);
     }).catch((error) => {
       reject(error);
     });

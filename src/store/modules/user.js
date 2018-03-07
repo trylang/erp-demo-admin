@@ -1,5 +1,5 @@
-import { loginByUsername, logout, getUserInfo } from '@/utils/rest/user';
-import { getToken, setToken, removeToken } from '@/utils/auth';
+import { loginByUsername, getUserInfo } from '@/utils/rest/user';
+import { getToken, setToken } from '@/utils/auth';
 import { _returnPromise } from '../../utils';
 
 const state = {
@@ -62,7 +62,7 @@ const actions = {
   },
 
   GetUserInfo({ commit, state }) {
-    _returnPromise(getUserInfo, { token: state.token }, (data) => {
+    return _returnPromise(getUserInfo, { token: state.token }, (data) => {
       commit('SET_ROLES', data.roles)
       commit('SET_NAME', data.name)
       commit('SET_AVATAR', data.avatar)

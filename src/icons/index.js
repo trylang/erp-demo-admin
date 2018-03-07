@@ -9,6 +9,8 @@ const requireAll = requireContext => {
   return requireContext.keys().map(requireContext)
 };
 
-const req = require.context('./svg', false, /\.svg$/)
-const iconMap = requireAll(req);
-console.log(iconMap);
+const req = require.context('./svg', false, /\.svg$/);
+requireAll(req);
+
+// const iconMap = requireAll(req);
+// console.log(iconMap);

@@ -6,7 +6,7 @@ Vue.use(Router)
 //主页面
 const Home = r => require.ensure([], () => r(require('../pages/Home')), 'main');
 const Inner = r => require.ensure([], () => r(require('../pages/Web')), 'main');
-const WebInner = r => require.ensure([], () => r(require('../pages/WebInner')), 'main');
+// const WebInner = r => require.ensure([], () => r(require('../pages/WebInner')), 'main');
 
 //登陆页面
 const Login = r => require.ensure([], () => r(require('../pages/login/login')), 'main');
@@ -47,46 +47,32 @@ const AccountAdjustType = r => require.ensure([], () => r(require('../pages/fina
 const PayMethods = r => require.ensure([], () => r(require('../pages/finance/payMethods/Index')), 'finance');
 const ImportIrregularCost = r => require.ensure([], () => r(require('../pages/finance/importIrregularCost/Index')), 'finance');
 
-const Salmanage = r => require.ensure([], () => r(require('../pages/sales/Index')), 'sales');
-const Terminal = r => require.ensure([], () => r(require('../pages/rebates/Index')), 'rebates');
-const Visualization = r => require.ensure([], () => r(require('../pages/visual/Index')), 'visual');
-const Merchant = r => require.ensure([], () => r(require('../pages/merchant/Index')), 'merchant');
-const Dataview = r => require.ensure([], () => r(require('../pages/database/Index')), 'database');
-
-//系统管理
-const Area = r => require.ensure([], () => r(require('../pages/system/Index')), 'system');
-const Shopping = r => require.ensure([], () => r(require('../pages/system/Shopping')), 'system');
-const Dept = r => require.ensure([], () => r(require('../pages/system/Dept')), 'system');
-const Job = r => require.ensure([], () => r(require('../pages/system/Job')), 'system');
-const User = r => require.ensure([], () => r(require('../pages/system/User')), 'system');
-const AddUser = r => require.ensure([], () => r(require('../pages/system/AddUser')), 'system');
-const Role = r => require.ensure([], () => r(require('../pages/system/Role')), 'system');
-const Log = r => require.ensure([], () => r(require('../pages/system/Log')), 'system');
-const AddRole = r => require.ensure([], () => r(require('../pages/system/AddRole')), 'system');
-
 export const constantRouterMap = [
   {
     path: '/login',
-    component: Login
+    component: Login,
+    hidden: true
   },
   {
     path: '',
-    component: Home
+    component: Home,
+    hidden: true
   },
   {
     path: '/inner',
     component: Inner,
     redirect: '/inner/building',
+    meta: { title: 'Inner', icon: 'Inner' },
     children: [
       {
         path: 'building',
-        name: 'inner',
-        component: Building
+        component: Building,
+        meta: { title: 'Building', icon: 'Building' }
       },
       {
         path: 'intention',
-        name: 'inner',
-        component: Intention
+        component: Intention,
+        meta: { title: 'Intention', icon: 'Intention' }
       }
     ]
   },
@@ -94,288 +80,224 @@ export const constantRouterMap = [
     path: '/finance',
     component: Inner,
     redirect: '/finance/accountGroup',
+    meta: { title: 'Finance', icon: 'Finance' },
     children: [
       {
         path: 'accountGroup',
-        name: 'finance',
-        component: AccountGroup
+        component: AccountGroup,
+        meta: { title: 'AccountGroup', icon: 'AccountGroup' }
       },
       {
         path: 'cost',
-        name: 'finance',
-        component: Cost
+        component: Cost,
+        meta: { title: 'Cost', icon: 'Cost' }
       },
       {
         path: 'takeMargin',
-        name: 'finance',
-        component: TakeMargin
+        component: TakeMargin,
+        meta: { title: 'TakeMargin', icon: 'TakeMargin' }
       },
       {
         path: 'takeMargin/collectDeposit',
-        name: 'finance',
-        component: CollectDeposit
+        component: CollectDeposit,
+        hidden: true,
+        meta: { title: 'CollectDeposit', icon: 'CollectDeposit' }
       },
       {
         path: 'takeMargin/collectEarnest',
-        name: 'finance',
-        component: CollectEarnest
+        component: CollectEarnest,
+        hidden: true,
+        meta: { title: 'CollectEarnest', icon: 'CollectEarnest' }
       },
       {
         path: 'payManagement',
-        name: 'finance',
-        component: PayManagement
+        component: PayManagement,
+        meta: { title: 'PayManagement', icon: 'PayManagement' }
       },
       {
         path: 'payManagement/collectMoney',
-        name: 'finance',
-        component: CollectMoney
+        component: CollectMoney,
+        hidden: true,
+        meta: { title: 'CollectMoney', icon: 'CollectMoney' }
       },
       {
         path: 'taxRate',
-        name: 'finance',
-        component: TaxRate
+        component: TaxRate,
+        meta: { title: 'TaxRate', icon: 'TaxRate' }
       },
       {
         path: 'taxRate2cost',
-        name: 'finance',
-        component: TaxRate2cost
+        component: TaxRate2cost,
+        meta: { title: 'TaxRate2cost', icon: 'TaxRate2cost' }
       },
       {
         path: 'collectionAccount',
-        name: 'finance',
-        component: CollectionAccount
+        component: CollectionAccount,
+        meta: { title: 'CollectionAccount', icon: 'CollectionAccount' }
       },
       {
         path: 'accountAdjust',
-        name: 'finance',
-        component: AccountAdjust
+        component: AccountAdjust,
+        meta: { title: 'AccountAdjust', icon: 'AccountAdjust' }
       },
       {
         path: 'accountAdjust/addAdjustment',
-        name: 'finance',
-        component: AddAdjustment
+        component: AddAdjustment,
+        hidden: true,
+        meta: { title: 'AddAdjustment', icon: 'AddAdjustment' }
       },
       {
         path: 'collectionMethods',
-        name: 'finance',
-        component: CollectionMethods
+        component: CollectionMethods,
+        meta: { title: 'CollectionMethods', icon: 'CollectionMethods' }
       },
       {
         path: 'contractMargin',
-        name: 'finance',
-        component: ContractMargin
+        component: ContractMargin,
+        meta: { title: 'ContractMargin', icon: 'ContractMargin' }
       },
       {
         path: 'dealMargin',
-        name: 'finance',
-        component: DealMargin
+        component: DealMargin,
+        meta: { title: 'DealMargin', icon: 'DealMargin' }
       },
       {
         path: 'advancePayMethods',
-        name: 'finance',
-        component: AdvancePayMethods
+        component: AdvancePayMethods,
+        meta: { title: 'AdvancePayMethods', icon: 'AdvancePayMethods' }
       },
       {
         path: 'takeadvancePay',
-        name: 'finance',
-        component: TakeadvancePay
+        component: TakeadvancePay,
+        meta: { title: 'TakeadvancePay', icon: 'TakeadvancePay' }
       },
       {
         path: 'merchantAdvancePay',
-        name: 'finance',
-        component: MerchantAdvancePay
+        component: MerchantAdvancePay,
+        meta: { title: 'MerchantAdvancePay', icon: 'MerchantAdvancePay' }
       },
       {
         path: 'dealAdvancePay',
-        name: 'finance',
-        component: DealAdvancePay
+        component: DealAdvancePay,
+        meta: { title: 'DealAdvancePay', icon: 'DealAdvancePay' }
       },
       {
         path: 'irregularCost',
-        name: 'finance',
-        component: IrregularCost
+        component: IrregularCost,
+        meta: { title: 'IrregularCost', icon: 'IrregularCost' }
       },
       {
         path: 'irregularCost/entering',
-        name: 'finance',
-        component: Entering
+        component: Entering,
+        hidden: true,
+        meta: { title: 'Entering', icon: 'Entering' }
       }, {
         path: 'costAdjust',
-        name: 'finance',
-        component: CostAdjust
+        component: CostAdjust,
+        meta: { title: 'CostAdjust', icon: 'CostAdjust' }
       }, {
         path: 'costAdjust/addCostAdjust',
-        name: 'finance',
-        component: AddCostAdjust
+        component: AddCostAdjust,
+        hidden: true,
+        meta: { title: 'AddCostAdjust', icon: 'AddCostAdjust' }
       }, {
         path: 'rentFree',
-        name: 'finance',
-        component: RentFree
+        component: RentFree,
+        meta: { title: 'RentFree', icon: 'RentFree' }
       }, {
         path: 'rentFree/addRentFree',
-        name: 'finance',
-        component: AddRentFree
+        component: AddRentFree,
+        hidden: true,
+        meta: { title: 'AddRentFree', icon: 'AddRentFree' }
       }, {
         path: 'generateAccount',
-        name: 'finance',
-        component: GenerateAccount
+        component: GenerateAccount,
+        meta: { title: 'GenerateAccount', icon: 'GenerateAccount' }
       }, {
         path: 'accountManagement',
-        name: 'finance',
-        component: AccountManagement
+        component: AccountManagement,
+        meta: { title: 'AccountManagement', icon: 'AccountManagement' }
       }, {
         path: 'accountAdjustType',
-        name: 'finance',
-        component: AccountAdjustType
+        component: AccountAdjustType,
+        meta: { title: 'AccountAdjustType', icon: 'AccountAdjustType' }
       }, {
         path: 'payMethods',
-        name: 'finance',
-        component: PayMethods
+        component: PayMethods,
+        meta: { title: 'PayMethods', icon: 'PayMethods' }
       }, {
         path: 'importIrregularCost',
-        name: 'finance',
-        component: ImportIrregularCost
-      }
-    ]
-  },
-  {
-    path: '/sales',
-    component: Inner,
-    children: [
-      {
-        path: 'salmanage',
-        component: Salmanage
-      }
-    ]
-  },
-  {
-    path: '/rebates',
-    component: Inner,
-    children: [
-      {
-        path: 'terminal',
-        component: Terminal
-      }
-    ]
-  },
-  {
-    path: '/visual',
-    component: Inner,
-    children: [
-      {
-        path: 'visualization',
-        component: Visualization
-      }
-    ]
-  },
-  {
-    path: '/webinner',
-    component: WebInner,
-    redirect: '/webinner/merchant',
-    children: [
-      {
-        path: 'merchant',
-        component: Merchant
-      }
-    ]
-  },
-  {
-    path: '/database',
-    component: Inner,
-    children: [
-      {
-        path: 'dataview',
-        component: Dataview
-      }
-    ]
-  },
-  {
-    path: '/system',
-    component: Inner,
-    redirect: '/system/area',
-    children: [
-      {
-        path: 'area',
-        name: 'system',
-        component: Area
-      },
-      {
-        path: 'shopping',
-        name: 'system',
-        component: Shopping
-      },
-      {
-        path: 'dept',
-        name: 'system',
-        component: Dept
-      },
-      {
-        path: 'job',
-        name: 'system',
-        component: Job
-      },
-      {
-        path: 'user',
-        name: 'system',
-        component: User
-      },
-      {
-        path: 'adduser',
-        name: 'system',
-        component: AddUser
-      },
-      {
-        path: 'role',
-        name: 'system',
-        component: Role
-      },
-      {
-        path: 'addrole',
-        name: 'system',
-        component: AddRole
-      },
-      {
-        path: 'log',
-        name: 'system',
-        component: Log
+        component: ImportIrregularCost,
+        meta: { title: 'Intention', icon: 'Intention' }
       }
     ]
   }
 ];
 
-export const asyncRouterMap = [
-  {
-    path: '/test',
-    component: Inner,
-    redirect: '/test/accountGroup',
-    children: [
-      {
-        path: 'accountGroup',
-        component: AccountGroup
-      },
-      {
-        path: 'takeMargin',
-        component: TakeMargin
-      },
-      {
-        path: 'takeMargin/collectDeposit',
-        component: CollectDeposit
-      },
-      {
-        path: 'takeMargin/collectEarnest',
-        component: CollectEarnest
-      },
-      {
-        path: 'payManagement',
-        component: PayManagement
-      },
-      {
-        path: 'payManagement/collectMoney',
-        component: CollectMoney
-      }
-    ]
-  }
-];
+export const asyncRouterMap = [{
+  path: '/test1',
+  component: Inner,
+  // redirect: '/test1/accountGroup',
+  meta: { title: 'test1', icon: 'test1' },
+  children: [
+    {
+      path: 'accountGroup',
+      component: AccountGroup,
+      meta: { title: 'AccountGroup', icon: 'AccountGroup' }
+    },
+    {
+      path: 'test2',
+      component: TakeMargin,
+      meta: { title: 'TakeMargin', icon: 'TakeMargin' }
+    },
+    {
+      path: 'test2/collectDeposit',
+      component: CollectDeposit,
+      hidden: true,
+      meta: { title: 'CollectDeposit', icon: 'CollectDeposit' }
+    },
+    {
+      path: 'test2/collectEarnest',
+      component: CollectEarnest,
+      meta: { title: 'CollectEarnest', icon: 'CollectEarnest' }
+    },
+    {
+      path: 'payManagement',
+      component: PayManagement,
+      meta: { title: 'PayManagement', icon: 'PayManagement' }
+    },
+    {
+      path: 'payManagement/collectMoney',
+      component: CollectMoney,
+      hidden: true,
+      meta: { title: 'CollectMoney', icon: 'CollectMoney' }
+    },
+    {
+      path: 'accountAdjust/addAdjustment',
+      component: AddAdjustment,
+      hidden: true,
+      meta: { title: 'Intention', icon: 'Intention' }
+    }, {
+      path: 'costAdjust',
+      component: CostAdjust,
+      meta: { title: 'Intention', icon: 'Intention' }
+    }, {
+      path: 'costAdjust/addCostAdjust',
+      component: AddCostAdjust,
+      hidden: true,
+      meta: { title: 'Intention', icon: 'Intention' }
+    }, {
+      path: 'rentFree',
+      component: RentFree,
+      meta: { title: 'Intention', icon: 'Intention' }
+    }, {
+      path: 'rentFree/addRentFree',
+      component: AddRentFree,
+      hidden: true,
+      meta: { title: 'Intention', icon: 'Intention' }
+    }
+  ]
+}];
 
 const router = new Router({
   routes: constantRouterMap

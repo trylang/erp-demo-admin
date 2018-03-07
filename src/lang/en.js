@@ -1,4 +1,23 @@
 export default {
+  menu: {
+    Inner: 'Inner',
+    Building: 'Building',
+    Intention: 'Intention',
+    Finance: 'Finance',
+    AccountGroup: 'AccountGroup',
+    Cost: 'Cost',
+    TakeMargin: 'TakeMargin',
+    CollectDeposit: 'CollectDeposit',
+    CollectEarnest: 'CollectEarnest',
+    PayManagement: 'PayManagement',
+    CollectMoney: 'CollectMoney',
+    TaxRate: 'TaxRate',
+    TaxRate2cost: 'TaxRate2cost',
+    CollectionAccount: 'CollectionAccount',
+    AccountAdjust: 'AccountAdjust',
+    AddAdjustment: 'AddAdjustment',
+    CollectionMethods: 'CollectionMethods'
+  },
   route: {
     dashboard: 'Dashboard',
     introduction: 'Introduction',

@@ -9,7 +9,6 @@ NProgress.configure({ showSpinner: false });
 const whiteList = ['/login', '/authredirect'];
 
 router.beforeEach((to, from, next) => {
-  console.log(getToken());
   NProgress.start();
   if (getToken()) {
     // has token
@@ -17,14 +16,19 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' });
       NProgress.done();
     } else {
-      let store = router.app.$options.store,
-        _path = to.path.match(/\/?[^\/]+/g);
-      _path = _path || ['/'];
-      let enterHandler = () => {
-        store.commit('MENU_ACTIVE', _path[0])
-      };
-      enterHandler();
-      next();
+      if (store.getters.roles.length === 0) { // 还没有获取用户信息，需要拉取
+        store.dispatch('GetUserInfo').then(() => {
+          let roles = store.getters.roles;
+          store.dispatch('GenerateRoutes',roles).then((res1) => {
+            router.addRoutes(res1);
+            next({ ...to, replace: true });
+          })
+        }).catch(() => {
+          next({path: '/login'});
+        })
+      } else { // 已获取用户信息
+        next();
+      }
     }
 
   } else {
@@ -38,6 +42,6 @@ router.beforeEach((to, from, next) => {
   }
 });
 
-router.afterEach( () => {
+router.afterEach(() => {
   NProgress.done();
 });

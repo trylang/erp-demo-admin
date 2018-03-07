@@ -1,4 +1,23 @@
 export default {
+  menu: {
+    Inner: '资产管理',
+    Building: '楼宇管理',
+    Intention: '意向合同管理',
+    Finance: '财务管理',
+    AccountGroup: '结算组别',
+    Cost: '税率设置',
+    TakeMargin: '履约保证金',
+    CollectDeposit: '诚意金收取',
+    CollectEarnest: '租赁保证金收取',
+    PayManagement: '收款管理',
+    CollectMoney: '结算单收款',
+    TaxRate: '税率设置',
+    TaxRate2cost: '费用项目',
+    CollectionAccount: '收款账户',
+    AccountAdjust: '结算单调整管理',
+    AddAdjustment: '结算单调整',
+    CollectionMethods: '保证金收款方式'
+  },
   route: {
     dashboard: '首页',
     introduction: '简述',
