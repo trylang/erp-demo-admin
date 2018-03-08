@@ -21,13 +21,17 @@ router.beforeEach((to, from, next) => {
           let roles = store.getters.roles;
           store.dispatch('GenerateRoutes',roles).then((res1) => {
             router.addRoutes(res1);
+            store.commit('MENU_ACTIVE', to.path);
             next({ ...to, replace: true });
           })
         }).catch(() => {
           next({path: '/login'});
         })
       } else { // 已获取用户信息
+        console.log(to.path);
+        store.commit('MENU_ACTIVE', to.path);
         next();
+        
       }
     }
 

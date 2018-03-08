@@ -3,7 +3,7 @@
         <div class="navbox" style="margin-bottom:0">
             <el-row :gutter="30">
                 <el-col :span="18">
-                    <el-menu :default-active="menuActiveIndex" class="el-menu-demo" mode="horizontal" router>
+                    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" router>
                         <el-menu-item :index="item.path" v-for="(item,$index) in menuList" :key="$index">
                             <router-link :to="item.path" v-text="item.title"></router-link>
                         </el-menu-item>
@@ -11,6 +11,7 @@
                 </el-col>
                 <el-col :span="6">
                     <div class="message">
+                        <h1>{{activeIndex}}</h1>
                         <span @click="logoutHandler">退出</span>
                     </div>
                     <div class="profile">
@@ -71,7 +72,12 @@
                 }];
                 return menuData
             },
-            ...mapGetters(['menuActiveIndex'])
+            ...mapGetters(['menuActiveIndex']),
+            activeIndex() {
+                return this.menuList.find(item => {
+                    return this.menuActiveIndex.indexOf(item.path) >= 0;
+                }).path;
+            }
         },
         methods: {
             logoutHandler(){

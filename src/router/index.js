@@ -80,11 +80,12 @@ export const constantRouterMap = [
   {
     path: '/finance',
     component: Inner,
-    redirect: '/finance/part1/accountGroup',
+    redirect: '/finance/part1/accountGroup34',
     meta: { title: 'Finance', icon: 'Finance' },
     children: [{
         path: 'part1',
         component: Blank,
+        redirect: '/finance/part1/accountGroup',
         meta: { title: 'Part1', icon: 'AccountGroup' },
         children: [{
           path: 'accountGroup',
@@ -116,6 +117,7 @@ export const constantRouterMap = [
       },{
         path: 'part2',
         component: Blank,
+        redirect: '/finance/part2/payManagement',
         meta: { title: 'Part2', icon: 'AccountGroup' },
         children:[{
           path: 'payManagement',
@@ -137,6 +139,7 @@ export const constantRouterMap = [
       {
         path: 'part3',
         component: Blank,
+        redirect: '/finance/part3/taxRate2cost',
         meta: { title: 'Part3', icon: 'AccountGroup' },
         children: [{
           path: 'taxRate2cost',
@@ -205,118 +208,71 @@ export const constantRouterMap = [
           hidden: true,
           meta: { fullPath: '/finance/part3/irregularCost/entering', title: 'Entering', icon: 'Entering' }
         }] 
-      },
-      {
-        path: 'part4',
-        component: Blank,
-        meta: { title: 'Part4', icon: 'AccountGroup' },
-        children: [{
-          path: 'costAdjust',
-          component: CostAdjust,
-          meta: { fullPath: '/finance/part4/costAdjust', title: 'CostAdjust', icon: 'CostAdjust' }
-        }, {
-          path: 'costAdjust/addCostAdjust',
-          component: AddCostAdjust,
-          hidden: true,
-          meta: { fullPath: '/finance/part4/costAdjust/addCostAdjust', title: 'AddCostAdjust', icon: 'AddCostAdjust' }
-        }, {
-          path: 'rentFree',
-          component: RentFree,
-          meta: { fullPath: '/finance/part4/rentFree', title: 'RentFree', icon: 'RentFree' }
-        }, {
-          path: 'rentFree/addRentFree',
-          component: AddRentFree,
-          hidden: true,
-          meta: { fullPath: '/finance/part4/AddRentFree', title: 'AddRentFree', icon: 'AddRentFree' }
-        }, {
-          path: 'generateAccount',
-          component: GenerateAccount,
-          meta: { fullPath: '/finance/part4/generateAccount', title: 'GenerateAccount', icon: 'GenerateAccount' }
-        }, {
-          path: 'accountManagement',
-          component: AccountManagement,
-          meta: { fullPath: '/finance/part4/accountManagement', title: 'AccountManagement', icon: 'AccountManagement' }
-        }, {
-          path: 'accountAdjustType',
-          component: AccountAdjustType,
-          meta: { fullPath: '/finance/part4/accountAdjustType', title: 'AccountAdjustType', icon: 'AccountAdjustType' }
-        }, {
-          path: 'payMethods',
-          component: PayMethods,
-          meta: { fullPath: '/finance/part4/payMethods', title: 'PayMethods', icon: 'PayMethods' }
-        }, {
-          path: 'importIrregularCost',
-          component: ImportIrregularCost,
-          meta: { fullPath: '/finance/part4/importIrregularCost', title: 'Intention', icon: 'Intention' }
-        }]
       }
     ]
   }
 ];
 
 export const asyncRouterMap = [{
-  path: '/test1',
+  path: '/login',
+  component: Login,
+  hidden: true
+},
+{
+  path: '',
+  component: Home,
+  hidden: true
+},{
+  path: '/finance',
   component: Inner,
-  // redirect: '/test1/accountGroup',
-  meta: { title: 'test1', icon: 'test1' },
+  redirect: '/finance/part4/costAdjust',
+  meta: { title: 'Finance', icon: 'Finance' },
   children: [
     {
-      path: 'accountGroup',
-      component: AccountGroup,
-      meta: { title: 'AccountGroup', icon: 'AccountGroup' }
-    },
-    {
-      path: 'test2',
-      component: TakeMargin,
-      meta: { title: 'TakeMargin', icon: 'TakeMargin' }
-    },
-    {
-      path: 'test2/collectDeposit',
-      component: CollectDeposit,
-      hidden: true,
-      meta: { title: 'CollectDeposit', icon: 'CollectDeposit' }
-    },
-    {
-      path: 'test2/collectEarnest',
-      component: CollectEarnest,
-      meta: { title: 'CollectEarnest', icon: 'CollectEarnest' }
-    },
-    {
-      path: 'payManagement',
-      component: PayManagement,
-      meta: { title: 'PayManagement', icon: 'PayManagement' }
-    },
-    {
-      path: 'payManagement/collectMoney',
-      component: CollectMoney,
-      hidden: true,
-      meta: { title: 'CollectMoney', icon: 'CollectMoney' }
-    },
-    {
-      path: 'accountAdjust/addAdjustment',
-      component: AddAdjustment,
-      hidden: true,
-      meta: { title: 'Intention', icon: 'Intention' }
-    }, {
-      path: 'costAdjust',
-      component: CostAdjust,
-      meta: { title: 'Intention', icon: 'Intention' }
-    }, {
-      path: 'costAdjust/addCostAdjust',
-      component: AddCostAdjust,
-      hidden: true,
-      meta: { title: 'Intention', icon: 'Intention' }
-    }, {
-      path: 'rentFree',
-      component: RentFree,
-      meta: { title: 'Intention', icon: 'Intention' }
-    }, {
-      path: 'rentFree/addRentFree',
-      component: AddRentFree,
-      hidden: true,
-      meta: { title: 'Intention', icon: 'Intention' }
-    }
-  ]
+      path: 'part4',
+      component: Blank,
+      redirect: '/finance/part4/costAdjust',
+      meta: { title: 'Part4', icon: 'AccountGroup' },
+      children: [{
+        path: 'costAdjust',
+        component: CostAdjust,
+        meta: { fullPath: '/finance/part4/costAdjust', title: 'CostAdjust', icon: 'CostAdjust' }
+      }, {
+        path: 'costAdjust/addCostAdjust',
+        component: AddCostAdjust,
+        hidden: true,
+        meta: { fullPath: '/finance/part4/costAdjust/addCostAdjust', title: 'AddCostAdjust', icon: 'AddCostAdjust' }
+      }, {
+        path: 'rentFree',
+        component: RentFree,
+        meta: { fullPath: '/finance/part4/rentFree', title: 'RentFree', icon: 'RentFree' }
+      }, {
+        path: 'rentFree/addRentFree',
+        component: AddRentFree,
+        hidden: true,
+        meta: { fullPath: '/finance/part4/AddRentFree', title: 'AddRentFree', icon: 'AddRentFree' }
+      }, {
+        path: 'generateAccount',
+        component: GenerateAccount,
+        meta: { fullPath: '/finance/part4/generateAccount', title: 'GenerateAccount', icon: 'GenerateAccount' }
+      }, {
+        path: 'accountManagement',
+        component: AccountManagement,
+        meta: { fullPath: '/finance/part4/accountManagement', title: 'AccountManagement', icon: 'AccountManagement' }
+      }, {
+        path: 'accountAdjustType',
+        component: AccountAdjustType,
+        meta: { fullPath: '/finance/part4/accountAdjustType', title: 'AccountAdjustType', icon: 'AccountAdjustType' }
+      }, {
+        path: 'payMethods',
+        component: PayMethods,
+        meta: { fullPath: '/finance/part4/payMethods', title: 'PayMethods', icon: 'PayMethods' }
+      }, {
+        path: 'importIrregularCost',
+        component: ImportIrregularCost,
+        meta: { fullPath: '/finance/part4/importIrregularCost', title: 'Intention', icon: 'Intention' }
+      }]
+    }]
 }];
 
 const router = new Router({

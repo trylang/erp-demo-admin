@@ -14,7 +14,8 @@ const getters = {
 const mutations = {
   SET_ROUTERS: (state, routers) => {
     state.addRouters = routers;
-    state.routers = constantRouterMap.concat(routers);
+    state.routers = routers;
+    // state.routers = constantRouterMap.concat(routers);
   }
 }
 
