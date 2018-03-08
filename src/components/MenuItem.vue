@@ -1,29 +1,26 @@
 <template>
-    <div>
-        <el-submenu :index="index+''">
-            <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>{{generateTitle(item.meta.title)}}</span>
-            </template>
-            <el-menu-item
-                :index="child.path"
-                v-if="!child.hidden"
-                v-for="(child, index) in item.children"
-                :key="index">
-                <router-link tag="li" :to="item.path+'/'+child.path">
-                    <span>-</span>
-                    <span class="menutitle">{{generateTitle(child.meta.title)}}</span>
-                </router-link>
-            </el-menu-item>
-        </el-submenu>
-    </div>
+  <div>    
+    <el-submenu :index="child.path" v-for="(child, index) in item.children" :key="index">
+        
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>{{generateTitle(child.meta.title)}}</span>
+        </template>
+        <el-menu-item :index="small.meta.fullPath" v-if="!small.hidden" v-for="(small, key) in child.children" :key="key">
+          <router-link tag="li" :to="small.path">
+            <span>-</span>
+            <span class="menutitle">{{generateTitle(small.meta.title)}}</span>
+          </router-link>
+        </el-menu-item>
+    </el-submenu>     
+  </div>
 </template>
 
 <script>
 import { generateTitle } from "@/utils/i18n";
 export default {
   name: "menu-item",
-  props: ["item", "index"],
+  props: ["item"],
   methods: {
     generateTitle
   }
