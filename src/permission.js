@@ -8,6 +8,28 @@ NProgress.configure({ showSpinner: false });
 
 const whiteList = ['/login', '/authredirect'];
 
+function isPermission(router, path) {
+  const first = router.find((child) => {
+    return child.path && path.indexOf(child.path) >= 0;
+  });
+  if(first) {
+    const second = first.children.find(child => {
+      return child.path && path.indexOf(child.path) >= 0;
+    });
+    if(second) {
+      const third = second.children.find(child => {
+        return child.path && path.indexOf(child.path) >= 0;
+      });
+      return third ? true : false;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+  
+}
+
 router.beforeEach((to, from, next) => {
   NProgress.start();
   if (getToken()) {
@@ -28,10 +50,15 @@ router.beforeEach((to, from, next) => {
           next({path: '/login'});
         })
       } else { // 已获取用户信息
-        console.log(to.path);
-        store.commit('MENU_ACTIVE', to.path);
-        next();
-        
+        // store.commit('MENU_ACTIVE', to.path);
+        if(isPermission(store.getters.permission_routers, to.path)) {
+          next();
+        } else {
+          console.log(store);
+          console.log(to.path);
+          next({ replace: true });
+        }
+               
       }
     }
 

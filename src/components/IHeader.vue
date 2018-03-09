@@ -8,7 +8,8 @@
                 <el-col :span="16">
                     <el-menu :default-active="menuActiveIndex" class="el-menu-demo" mode="horizontal">
                         <el-menu-item :index="item.path" v-for="(item,$index) in menuList" :key="$index">
-                            <router-link :to="item.path" v-text="item.title"></router-link>
+                            <!-- <h1>{{item.path}}</h1> -->
+                            <router-link :to="item.path" v-text="item.title" @click.prevent.self.native="commitActive(item)"></router-link>
                         </el-menu-item>
                     </el-menu>
                 </el-col>
@@ -33,6 +34,7 @@
 
 <script>
     import { mapGetters } from 'vuex'
+    import store from '@/store';
     export default {
         name: "erpheader",
         data(){
@@ -82,8 +84,9 @@
             logoutHandler(){
                 console.log('退出登录');
             },
-            handleSelect(key, keyPath) {
-                console.log(key, keyPath);
+            commitActive(route) {
+                store.commit('MENU_ACTIVE', route.path);
+                console.log(store);
             }
         }
     }

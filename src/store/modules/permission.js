@@ -1,6 +1,5 @@
 import { asyncRouterMap, constantRouterMap } from '@/router';
 
-
 const state = {
   routers: constantRouterMap,
   addRouters: []
@@ -24,7 +23,7 @@ const actions = {
     return new Promise(resolve => {
       let accessedRouters;
       if(roles.indexOf('admin') >= 0) {
-        accessedRouters = asyncRouterMap;
+        accessedRouters = constantRouterMap;
       } else {
         accessedRouters = constantRouterMap;
       }

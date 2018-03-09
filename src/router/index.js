@@ -80,135 +80,135 @@ export const constantRouterMap = [
   {
     path: '/finance',
     component: Inner,
-    redirect: '/finance/part1/accountGroup34',
+    redirect: '/finance/part1/accountGroup',
     meta: { title: 'Finance', icon: 'Finance' },
     children: [{
-        path: 'part1',
-        component: Blank,
-        redirect: '/finance/part1/accountGroup',
-        meta: { title: 'Part1', icon: 'AccountGroup' },
-        children: [{
-          path: 'accountGroup',
-          component: AccountGroup,
-          meta: { fullPath: '/finance/part1/accountGroup', title: 'AccountGroup', icon: 'AccountGroup'}
-        },
-        {
-          path: 'cost',
-          component: Cost,
-          meta: { fullPath: '/finance/part1/cost', title: 'Cost', icon: 'Cost' }
-        },
-        {
-          path: 'takeMargin',
-          component: TakeMargin,
-          meta: { fullPath: '/finance/part1/takeMargin', title: 'TakeMargin', icon: 'TakeMargin' }
-        },
-        {
-          path: 'takeMargin/collectDeposit',
-          component: CollectDeposit,
-          hidden: true,
-          meta: { fullPath: '/finance/part1/takeMargin/collectDeposit', title: 'CollectDeposit', icon: 'CollectDeposit' }
-        },
-        {
-          path: 'takeMargin/collectEarnest',
-          component: CollectEarnest,
-          hidden: true,
-          meta: { fullPath: '/finance/part1/takeMargin/collectEarnest', title: 'CollectEarnest', icon: 'CollectEarnest' }
-        }]
-      },{
-        path: 'part2',
-        component: Blank,
-        redirect: '/finance/part2/payManagement',
-        meta: { title: 'Part2', icon: 'AccountGroup' },
-        children:[{
-          path: 'payManagement',
-          component: PayManagement,
-          meta: { fullPath: '/finance/part2/payManagement', title: 'PayManagement', icon: 'PayManagement' }
-        },
-        {
-          path: 'payManagement/collectMoney',
-          component: CollectMoney,
-          hidden: true,
-          meta: { fullPath: '/finance/part2/payManagement/collectMoney', title: 'CollectMoney', icon: 'CollectMoney' }
-        },
-        {
-          path: 'taxRate',
-          component: TaxRate,
-          meta: { fullPath: '/finance/part2/taxRate', title: 'TaxRate', icon: 'TaxRate' }
-        }]
+      path: 'part1',
+      component: Blank,
+      redirect: '/finance/part1/accountGroup',
+      meta: { title: 'Part1', icon: 'AccountGroup' },
+      children: [{
+        path: 'accountGroup',
+        component: AccountGroup,
+        meta: { fullPath: '/finance/part1/accountGroup', title: 'AccountGroup', icon: 'AccountGroup' }
       },
       {
-        path: 'part3',
-        component: Blank,
-        redirect: '/finance/part3/taxRate2cost',
-        meta: { title: 'Part3', icon: 'AccountGroup' },
-        children: [{
-          path: 'taxRate2cost',
-          component: TaxRate2cost,
-          meta: { fullPath: '/finance/part3/taxRate2cost', title: 'TaxRate2cost', icon: 'TaxRate2cost' }
-        },
-        {
-          path: 'collectionAccount',
-          component: CollectionAccount,
-          meta: { fullPath: '/finance/part3/collectionAccount', title: 'CollectionAccount', icon: 'CollectionAccount' }
-        },
-        {
-          path: 'accountAdjust',
-          component: AccountAdjust,
-          meta: { fullPath: '/finance/part3/accountAdjust', title: 'AccountAdjust', icon: 'AccountAdjust' }
-        },
-        {
-          path: 'accountAdjust/addAdjustment',
-          component: AddAdjustment,
-          hidden: true,
-          meta: { fullPath: '/finance/part3/accountAdjust/addAdjustment', title: 'AddAdjustment', icon: 'AddAdjustment' }
-        },
-        {
-          path: 'collectionMethods',
-          component: CollectionMethods,
-          meta: { fullPath: '/finance/part3/collectionMethods', title: 'CollectionMethods', icon: 'CollectionMethods' }
-        },
-        {
-          path: 'contractMargin',
-          component: ContractMargin,
-          meta: { fullPath: '/finance/part3/contractMargin', title: 'ContractMargin', icon: 'ContractMargin' }
-        },
-        {
-          path: 'dealMargin',
-          component: DealMargin,
-          meta: { fullPath: '/finance/part3/dealMargin', title: 'DealMargin', icon: 'DealMargin' }
-        },
-        {
-          path: 'advancePayMethods',
-          component: AdvancePayMethods,
-          meta: { fullPath: '/finance/part3/advancePayMethods', title: 'AdvancePayMethods', icon: 'AdvancePayMethods' }
-        },
-        {
-          path: 'takeadvancePay',
-          component: TakeadvancePay,
-          meta: { fullPath: '/finance/part3/takeadvancePay', title: 'TakeadvancePay', icon: 'TakeadvancePay' }
-        },
-        {
-          path: 'merchantAdvancePay',
-          component: MerchantAdvancePay,
-          meta: { fullPath: '/finance/part3/merchantAdvancePay', title: 'MerchantAdvancePay', icon: 'MerchantAdvancePay' }
-        },
-        {
-          path: 'dealAdvancePay',
-          component: DealAdvancePay,
-          meta: { fullPath: '/finance/part3/dealAdvancePay', title: 'DealAdvancePay', icon: 'DealAdvancePay' }
-        },
-        {
-          path: 'irregularCost',
-          component: IrregularCost,
-          meta: { fullPath: '/finance/part3/irregularCost', title: 'IrregularCost', icon: 'IrregularCost' }
-        },
-        {
-          path: 'irregularCost/entering',
-          component: Entering,
-          hidden: true,
-          meta: { fullPath: '/finance/part3/irregularCost/entering', title: 'Entering', icon: 'Entering' }
-        }] 
-      }
+        path: 'cost',
+        component: Cost,
+        meta: { fullPath: '/finance/part1/cost', title: 'Cost', icon: 'Cost' }
+      },
+      {
+        path: 'takeMargin',
+        component: TakeMargin,
+        meta: { fullPath: '/finance/part1/takeMargin', title: 'TakeMargin', icon: 'TakeMargin' }
+      },
+      {
+        path: 'takeMargin/collectDeposit',
+        component: CollectDeposit,
+        hidden: true,
+        meta: { fullPath: '/finance/part1/takeMargin/collectDeposit', title: 'CollectDeposit', icon: 'CollectDeposit' }
+      },
+      {
+        path: 'takeMargin/collectEarnest',
+        component: CollectEarnest,
+        hidden: true,
+        meta: { fullPath: '/finance/part1/takeMargin/collectEarnest', title: 'CollectEarnest', icon: 'CollectEarnest' }
+      }]
+    }, {
+      path: 'part2',
+      component: Blank,
+      redirect: '/finance/part2/payManagement',
+      meta: { title: 'Part2', icon: 'AccountGroup' },
+      children: [{
+        path: 'payManagement',
+        component: PayManagement,
+        meta: { fullPath: '/finance/part2/payManagement', title: 'PayManagement', icon: 'PayManagement' }
+      },
+      {
+        path: 'payManagement/collectMoney',
+        component: CollectMoney,
+        hidden: true,
+        meta: { fullPath: '/finance/part2/payManagement/collectMoney', title: 'CollectMoney', icon: 'CollectMoney' }
+      },
+      {
+        path: 'taxRate',
+        component: TaxRate,
+        meta: { fullPath: '/finance/part2/taxRate', title: 'TaxRate', icon: 'TaxRate' }
+      }]
+    },
+    {
+      path: 'part3',
+      component: Blank,
+      redirect: '/finance/part3/taxRate2cost',
+      meta: { title: 'Part3', icon: 'AccountGroup' },
+      children: [{
+        path: 'taxRate2cost',
+        component: TaxRate2cost,
+        meta: { fullPath: '/finance/part3/taxRate2cost', title: 'TaxRate2cost', icon: 'TaxRate2cost' }
+      },
+      {
+        path: 'collectionAccount',
+        component: CollectionAccount,
+        meta: { fullPath: '/finance/part3/collectionAccount', title: 'CollectionAccount', icon: 'CollectionAccount' }
+      },
+      {
+        path: 'accountAdjust',
+        component: AccountAdjust,
+        meta: { fullPath: '/finance/part3/accountAdjust', title: 'AccountAdjust', icon: 'AccountAdjust' }
+      },
+      {
+        path: 'accountAdjust/addAdjustment',
+        component: AddAdjustment,
+        hidden: true,
+        meta: { fullPath: '/finance/part3/accountAdjust/addAdjustment', title: 'AddAdjustment', icon: 'AddAdjustment' }
+      },
+      {
+        path: 'collectionMethods',
+        component: CollectionMethods,
+        meta: { fullPath: '/finance/part3/collectionMethods', title: 'CollectionMethods', icon: 'CollectionMethods' }
+      },
+      {
+        path: 'contractMargin',
+        component: ContractMargin,
+        meta: { fullPath: '/finance/part3/contractMargin', title: 'ContractMargin', icon: 'ContractMargin' }
+      },
+      {
+        path: 'dealMargin',
+        component: DealMargin,
+        meta: { fullPath: '/finance/part3/dealMargin', title: 'DealMargin', icon: 'DealMargin' }
+      },
+      {
+        path: 'advancePayMethods',
+        component: AdvancePayMethods,
+        meta: { fullPath: '/finance/part3/advancePayMethods', title: 'AdvancePayMethods', icon: 'AdvancePayMethods' }
+      },
+      {
+        path: 'takeadvancePay',
+        component: TakeadvancePay,
+        meta: { fullPath: '/finance/part3/takeadvancePay', title: 'TakeadvancePay', icon: 'TakeadvancePay' }
+      },
+      {
+        path: 'merchantAdvancePay',
+        component: MerchantAdvancePay,
+        meta: { fullPath: '/finance/part3/merchantAdvancePay', title: 'MerchantAdvancePay', icon: 'MerchantAdvancePay' }
+      },
+      {
+        path: 'dealAdvancePay',
+        component: DealAdvancePay,
+        meta: { fullPath: '/finance/part3/dealAdvancePay', title: 'DealAdvancePay', icon: 'DealAdvancePay' }
+      },
+      {
+        path: 'irregularCost',
+        component: IrregularCost,
+        meta: { fullPath: '/finance/part3/irregularCost', title: 'IrregularCost', icon: 'IrregularCost' }
+      },
+      {
+        path: 'irregularCost/entering',
+        component: Entering,
+        hidden: true,
+        meta: { fullPath: '/finance/part3/irregularCost/entering', title: 'Entering', icon: 'Entering' }
+      }]
+    }
     ]
   }
 ];
@@ -222,7 +222,7 @@ export const asyncRouterMap = [{
   path: '',
   component: Home,
   hidden: true
-},{
+}, {
   path: '/finance',
   component: Inner,
   redirect: '/finance/part4/costAdjust',
