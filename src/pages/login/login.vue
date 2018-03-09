@@ -98,14 +98,15 @@ export default {
       }
     },
     handleLogin() {
+      const _this = this;
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true;
           this.$store
             .dispatch("LoginByUsername", this.loginForm)
             .then(() => {
-              this.loading = false;
-              this.$router.push({ path: "/" });
+              _this.loading = false;
+              _this.$router.push({ path: "/" });
             })
             .catch(() => {
               this.loading = false;

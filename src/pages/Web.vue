@@ -9,6 +9,7 @@
             </div>
             <div class="main">
                 <erp-header></erp-header>
+                <tags-view></tags-view>
                 <div class="wrapper">
                     <router-view></router-view>
                 </div>
@@ -20,11 +21,13 @@
 <script>
     import ErpHeader from '../components/Header';
     import ErpMenu from '../components/Menu';
+    import TagsView from './TagsView';
     export default {
         name: "erpweb",
         components:{
             ErpHeader,
-            ErpMenu
+            ErpMenu,
+            TagsView
         }
     }
 </script>

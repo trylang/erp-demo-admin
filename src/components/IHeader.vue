@@ -87,6 +87,11 @@
             commitActive(route) {
                 store.commit('MENU_ACTIVE', route.path);
                 console.log(store);
+            },
+            watch: {
+                $route: function(to, from) {
+                    console.log(to.path);
+                }
             }
         }
     }

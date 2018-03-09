@@ -87,6 +87,11 @@
             commitActive(route) {
                 console.log(route);
             }
+        },
+        watch: {
+            $route: function(to, from) {
+                console.log(to.path);
+            }
         }
     }
 </script>
